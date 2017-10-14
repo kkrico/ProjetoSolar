@@ -9,6 +9,7 @@ namespace ProjetoWebSolar
 {
     public partial class Site : System.Web.UI.MasterPage
     {
+        public string Titulo { get; set; }
         public enum WarningType
         {
             Success,
@@ -41,13 +42,13 @@ namespace ProjetoWebSolar
             switch (tipomsg)
             {
                 case TipoMensagem.Erro:
-                    imgMensagem.ImageUrl = "Imagens/error.png";
+                    imgMensagem.ImageUrl = "/Content/images/error.png";
                     break;
                 case TipoMensagem.Informacao:
-                    imgMensagem.ImageUrl = "Imagens/get_info.png";
+                    imgMensagem.ImageUrl = "/Content/images/get_info.png";
                     break;
                 case TipoMensagem.Salvar:
-                    imgMensagem.ImageUrl = "Imagens/get_info.png";
+                    imgMensagem.ImageUrl = "/Content/images/get_info.png";
                     break;
                 default:
                     break;

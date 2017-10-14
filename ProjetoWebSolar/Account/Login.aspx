@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="/Content/styles/projetosolar/site.css" />
     <link rel="stylesheet" href="/Content/styles/projetosolar/login.css" />
 </head>
-<body class="bg-conta">
+<body class="bg-conta bg-login">
     <form id="mainform" runat="server">
         <asp:ScriptManager ID="ScriptManager1" runat="server">
             <Scripts>
@@ -63,7 +63,7 @@
             <asp:ModalPopupExtender ID="mpMensagemMP" runat="server" TargetControlID="btnMnensagem" PopupControlID="pnpMensagemMP" CancelControlID="btnFecharMsgMP" BackgroundCssClass="modalBackground" DropShadow="true"></asp:ModalPopupExtender>
             <asp:Panel ID="pnpMensagemMP" runat="server" BackColor="White" BorderStyle="Solid" BorderWidth="1px" Style="position: absolute; margin-left: auto; margin-right: auto; height: 145px; width: 288px; display: none">
                 <asp:Label ID="lblMensagem" runat="server" Text="Label" Style="position: absolute; top: 20px; left: 101px; width: 171px; height: 60px;"></asp:Label>
-                <asp:Button ID="btnFecharMensagem" runat="server" Text="OK" Style="position: absolute; top: 107px; left: 117px; bottom: 12px; width: 91px;" OnClick="btnFecharMensagem_Click" />
+                <asp:Button ID="btnFecharMensagem" runat="server" Text="OK" Style="position: absolute; top: 107px; left: 117px;" OnClick="btnFecharMensagem_Click" CssClass="btn btn-sm btn-primary"/>
                 <asp:Image ID="imgMensagem" runat="server" Style="position: absolute; top: 9px; left: 9px; width: 72px; height: 74px;" />
             </asp:Panel>
 

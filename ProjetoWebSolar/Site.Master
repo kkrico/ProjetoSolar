@@ -1,67 +1,58 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="ProjetoWebSolar.Site" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE HTML>
+<html lang="pt-BR">
 <head id="Head1" runat="server">
+    <title><%=Titulo %> - Grupo Orion</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="Stylesheet" href="/bootstrap-3.3.7-dist/css/bootstrap.min.css" />
-    <link rel="icon" href="Imagens/logovetor2.png" />
+    <link rel="icon" href="/Content/Images/logovetor2.png" />
+    <link rel='stylesheet' href="/Content/styles/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="/Content/styles/projetosolar/site.css" />
+    <link rel="stylesheet" href="/Content/styles/projetosolar/login.css" />
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<style>
-    body {
-        background-image: url("../Imagens/masterpage2.png");
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: 100% 100%;
-    }
-</style>
-<body>
+<body class="bg-conta">
     <div>
-        <nav class="navbar navbar-inverse">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <button type="button" runat="server" class="navbar-toggle" data-toggle="navbar navbar-inverse" data-target="#myNavbar">
-                            <span runat="server" class="icon-bar"></span>
-                            <span runat="server" class="icon-bar"></span>
-                            <span runat="server" class="icon-bar"></span>
-                        </button>
-                        <a class="navbar-brand" href="#">SOLAR</a>
-                    </div>
-                    <div class="collapse navbar-collapse" id="myNavbar">
-                        <ul class="nav navbar-nav">
-                            <li class="active"><a href="../Default.aspx">Home</a></li>
-                                 <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Visitante <span class="caret"></span></a>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" runat="server" class="navbar-toggle" data-toggle="navbar navbar-inverse" data-target="#myNavbar">
+                        <span runat="server" class="icon-bar"></span>
+                        <span runat="server" class="icon-bar"></span>
+                        <span runat="server" class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">SOLAR</a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="../Default.aspx">Home</a></li>
+                        <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Visitante <span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li>
                                     <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Visitante/VisitanteCadastro.aspx">Novo Cadastro</asp:HyperLink>
+                                </li>
+                                <li>
+                                    <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/Visitante/webConsultaVisitante.aspx">Consulta Cadastro</asp:HyperLink>
                                 </li>
                                 <li role="separator" class="divider"></li>
                                 <li><a href="#">Em breve</a></li>
                             </ul>
                         </li>
-                                      <li><a href="../Visitante/VisitanteCadastro.aspx">Novo Cadastro</a></li>
-                                      <li><a href="../Visitante/webConsultaVisitante.aspx">Consulta Cadastro</a></li>
-                                      <li><a runat="server" href="~/Account/WebCadastrologin.aspx">Cadastro Login</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
 
-                                  
-                        </ul>
-                       <ul class="nav navbar-nav navbar-right"> 
-
-                             <li><a href="../Account/Login.aspx"><span runat="server" class=" glyphicon glyphicon-share"></span>Login</a>
-                                </li>
-                     </ul>
-                    </div>
+                        <li><a href="<%= ResolveUrl("~/Account/Login.aspx") %>"><span runat="server" class=" glyphicon glyphicon-share"></span>Login</a>
+                        </li>
+                    </ul>
                 </div>
-            </nav>
+            </div>
+        </nav>
         <form id="form1" runat="server">
             <asp:ScriptManager ID="ScriptManager1" runat="server">
                 <Scripts>
-                    <asp:ScriptReference Path="~/bootstrap-3.3.7-dist/jquery/jquery-3.2.1.min.js" ScriptMode="Auto" />
-                    <asp:ScriptReference Path="~/bootstrap-3.3.7-dist/js/bootstrap.min.js" ScriptMode="Auto" />
+                    <asp:ScriptReference Path="~/Content/scripts/jquery/jquery-3.2.1.min.js" ScriptMode="Auto" />
+                    <asp:ScriptReference Path="~/Content/scripts/bootstrap/bootstrap.min.js" ScriptMode="Auto" />
                 </Scripts>
             </asp:ScriptManager>
             <asp:Button ID="btnMnensagem" runat="server" Text="Button" Style="display: none;" />
@@ -74,11 +65,13 @@
                 BorderWidth="1px" Style="position: absolute; margin-left: auto; margin-right: auto; height: 145px; width: 288px; display: none">
                 <asp:Label ID="lblMensagem" runat="server" Text="Label" Style="position: absolute; top: 20px; left: 101px; width: 171px; height: 60px;"></asp:Label>
                 <asp:Button ID="btnFecharMensagem" runat="server" Text="OK" Style="position: absolute; top: 107px; left: 117px; bottom: 12px; width: 91px;"
-                    OnClick="btnFecharMensagem_Click" />
+                    OnClick="btnFecharMensagem_Click" CssClass="btn btn-sm btn-primary" />
                 <asp:Image ID="imgMensagem" runat="server" Style="position: absolute; top: 9px; left: 9px; width: 72px; height: 74px;" />
             </asp:Panel>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
+            <div class="container ajustado">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
         </form>
     </div>
 </body>

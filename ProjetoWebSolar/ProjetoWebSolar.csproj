@@ -77,6 +77,7 @@
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\WebCadastrologin.aspx" />
     <Content Include="bin\HzLibConnection.dll" />
+    <Content Include="Content\images\a.png" />
     <Content Include="Content\scripts\bootstrap\bootstrap.min.js" />
     <Content Include="Content\scripts\jquery\jquery-3.2.1.min.js" />
     <Content Include="Content\styles\bootstrap\bootstrap.min.css" />
