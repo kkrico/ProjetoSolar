@@ -24,6 +24,11 @@
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -72,34 +77,21 @@
     <Content Include="Account\Login.aspx" />
     <Content Include="Account\WebCadastrologin.aspx" />
     <Content Include="bin\HzLibConnection.dll" />
-    <Content Include="bootstrap-3.3.7-dist\css\bootstrap-theme.css" />
-    <Content Include="bootstrap-3.3.7-dist\css\bootstrap-theme.min.css" />
-    <Content Include="bootstrap-3.3.7-dist\css\bootstrap.css" />
-    <Content Include="bootstrap-3.3.7-dist\css\bootstrap.min.css" />
-    <Content Include="bootstrap-3.3.7-dist\css\style.css" />
-    <Content Include="bootstrap-3.3.7-dist\fonts\glyphicons-halflings-regular.svg" />
-    <Content Include="bootstrap-3.3.7-dist\jquery\codejquery1.12.4.js" />
-    <Content Include="bootstrap-3.3.7-dist\jquery\jquery-1.7.2.min.js" />
-    <Content Include="bootstrap-3.3.7-dist\jquery\jquery.maskedinput.js" />
-    <Content Include="bootstrap-3.3.7-dist\jquery\jquery.maskedinput.min.js" />
-    <Content Include="bootstrap-3.3.7-dist\jquery\jquery.min.js" />
-    <Content Include="bootstrap-3.3.7-dist\jquery\modalBackground.css" />
-    <Content Include="bootstrap-3.3.7-dist\js\bootstrap.js" />
-    <Content Include="bootstrap-3.3.7-dist\js\bootstrap.min.js" />
-    <Content Include="bootstrap-3.3.7-dist\js\npm.js" />
+    <Content Include="Content\scripts\bootstrap\bootstrap.min.js" />
+    <Content Include="Content\scripts\jquery\jquery-3.2.1.min.js" />
+    <Content Include="Content\styles\bootstrap\bootstrap.min.css" />
+    <Content Include="Content\styles\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\styles\projetosolar\login.css" />
+    <Content Include="Content\styles\projetosolar\site.css" />
     <Content Include="Default.aspx" />
-    <Content Include="Mascara\jquery-1.8.3.min.js" />
-    <Content Include="Mascara\jquery.maskedinput.js" />
-    <Content Include="Mascara\jquery.maskedinput.min.js" />
     <Content Include="Global.asax" />
-    <Content Include="Imagens\disquete.png" />
-    <Content Include="Imagens\error.png" />
-    <Content Include="Imagens\get_info.png" />
-    <Content Include="Imagens\logo1.png" />
-    <Content Include="Imagens\logovetor2.png" />
-    <Content Include="bootstrap-3.3.7-dist\jquery\jquery-3.2.1.min.js" />
-    <Content Include="Imagens\masterpage1.png" />
-    <Content Include="Imagens\masterpage2.png" />
+    <Content Include="Content\images\disquete.png" />
+    <Content Include="Content\images\error.png" />
+    <Content Include="Content\images\get_info.png" />
+    <Content Include="Content\images\logo1.png" />
+    <Content Include="Content\images\logovetor2.png" />
+    <Content Include="Content\images\masterpage1.png" />
+    <Content Include="Content\images\masterpage2.png" />
     <Content Include="Visitante\VisitanteCadastro.aspx" />
     <Content Include="Visitante\webConsultaVisitante.aspx" />
     <Content Include="Web.config" />
@@ -109,7 +101,6 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account\Login.aspx.cs">
@@ -161,36 +152,26 @@
     <Compile Include="Visitante\webConsultaVisitante.aspx.designer.cs">
       <DependentUpon>webConsultaVisitante.aspx</DependentUpon>
     </Compile>
-    <Compile Include="WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Site.Master" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="App_Themes\Theme1\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="bootstrap-3.3.7-dist\css\bootstrap-theme.css.map" />
-    <None Include="bootstrap-3.3.7-dist\css\bootstrap-theme.min.css.map" />
-    <None Include="bootstrap-3.3.7-dist\css\bootstrap.css.map" />
-    <None Include="bootstrap-3.3.7-dist\css\bootstrap.min.css.map" />
-    <None Include="bootstrap-3.3.7-dist\fonts\glyphicons-halflings-regular.eot" />
-    <None Include="bootstrap-3.3.7-dist\fonts\glyphicons-halflings-regular.ttf" />
-    <None Include="bootstrap-3.3.7-dist\fonts\glyphicons-halflings-regular.woff" />
-    <None Include="bootstrap-3.3.7-dist\fonts\glyphicons-halflings-regular.woff2" />
+    <Folder Include="App_Themes\" />
+    <Folder Include="Content\scripts\maskedinputs\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\hzLibSolar\hzLibSolar.csproj">
       <Project>{46D0C5BA-A37F-4920-A3E6-537F5408EF91}</Project>
       <Name>hzLibSolar</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\styles\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\styles\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\styles\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\styles\fonts\glyphicons-halflings-regular.woff2" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

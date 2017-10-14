@@ -1,57 +1,73 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="ProjetoWebSolar.Account.Login" %>
 
-    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-    <html>
-    <head>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="" />
+    <title>Projeto Solar - Login</title>
+    <link rel="icon" href="/Content/Images/logovetor2.png" />
+    <link rel='stylesheet' href="/Content/styles/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="/Content/styles/projetosolar/site.css" />
+    <link rel="stylesheet" href="/Content/styles/projetosolar/login.css" />
+</head>
+<body class="bg-conta">
+    <form id="mainform" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server">
+            <Scripts>
+                <asp:ScriptReference Path="~/Content/scripts/jquery/jquery-3.2.1.min.js" ScriptMode="Auto" />
+                <asp:ScriptReference Path="~/Content/scripts/bootstrap/bootstrap.min.js" ScriptMode="Auto" />
+            </Scripts>
+        </asp:ScriptManager>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6 col-sm-offset-3 col-xs-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            Pré Cadastro de Visitante
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label class="control-label">Usuário</label>
+                                        <asp:TextBox ID="txtuser1" runat="server" placeholder="Usuário" CssClass="form-control"></asp:TextBox>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label class="control-label">Senha</label>
+                                        <asp:TextBox ID="txtpassword2" runat="server" placeholder="Password" CssClass="form-control" TextMode="Password"></asp:TextBox>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-footer">
+                            <div class="pull-right">
+                                <asp:Button class="btn btn-primary btn-block" ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" />
+                            </div>
+                            <div style="margin-top: 0.5em">
+                                <asp:Label ID="lblVersao" runat="server" Text="Label"></asp:Label>
+                            </div>
+                            <div style="clear: both"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <!-- Descrição do Logo-->
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <link rel="icon" href="../Imagens/logovetor2.png" />
-        <style type="">
-            body { background-image: url("../Imagens/masterpage1.png"); background-attachment: fixed; background-position: center; background-repeat: no-repeat; background-size: 100% 100%; padding-top: 100px; /*painel de login se movimenta*/ } }
-        </style>
-        <%--<title></title>--%>
+            <asp:Button ID="btnMnensagem" runat="server" Text="Button" Style="display: none;" />
+            <asp:Button ID="btnFecharMsgMP" runat="server" Text="Button" Style="display: none;" />
+            <asp:ModalPopupExtender ID="mpMensagemMP" runat="server" TargetControlID="btnMnensagem" PopupControlID="pnpMensagemMP" CancelControlID="btnFecharMsgMP" BackgroundCssClass="modalBackground" DropShadow="true"></asp:ModalPopupExtender>
+            <asp:Panel ID="pnpMensagemMP" runat="server" BackColor="White" BorderStyle="Solid" BorderWidth="1px" Style="position: absolute; margin-left: auto; margin-right: auto; height: 145px; width: 288px; display: none">
+                <asp:Label ID="lblMensagem" runat="server" Text="Label" Style="position: absolute; top: 20px; left: 101px; width: 171px; height: 60px;"></asp:Label>
+                <asp:Button ID="btnFecharMensagem" runat="server" Text="OK" Style="position: absolute; top: 107px; left: 117px; bottom: 12px; width: 91px;" OnClick="btnFecharMensagem_Click" />
+                <asp:Image ID="imgMensagem" runat="server" Style="position: absolute; top: 9px; left: 9px; width: 72px; height: 74px;" />
+            </asp:Panel>
 
-            <link rel='stylesheet prefetch' href="../bootstrap-3.3.7-dist/css/bootstrap.min.css" />
-            <link rel="stylesheet" href="../bootstrap-3.3.7-dist/css/style.css" />
-    </head>
-    <body>
-        <div id="Div1" class="wrapper" runat="server">
-            <form id="Form1" class="form-signin" runat="server">
-                <br />
-
-                <fieldset style="height: 230px">
-                    <legend style="width: 253px">Pré Cadastro de Visitantes</legend>
-                    <asp:TextBox ID="txtuser1" runat="server" placeholder="User" CssClass="form-control input-lg"></asp:TextBox>
-                    <br />
-                    <asp:TextBox ID="txtpassword2" runat="server" placeholder="Password" CssClass="form-control input-lg" TextMode="Password"></asp:TextBox>
-                    <br />
-                    <asp:Button class="btn btn-lg btn-primary btn-block" ID="btnLogin" runat="server" Text="Login" onclick="btnLogin_Click" />
-                    <br />
-                    
-                </fieldset>
-                <br />
-                                <asp:ScriptManager ID="ScriptManager1" runat="server">
-
-                </asp:ScriptManager>
-                <asp:Label ID="lblVersao" runat="server" Text="Label"></asp:Label>
-                <asp:Button ID="btnMnensagem" runat="server" Text="Button" style="display: none;" />
-                <asp:Button ID="btnFecharMsgMP" runat="server" Text="Button" style="display: none;" />
-                <asp:ModalPopupExtender ID="mpMensagemMP" runat="server" TargetControlID="btnMnensagem" PopupControlID="pnpMensagemMP" CancelControlID="btnFecharMsgMP" BackgroundCssClass="modalBackground" DropShadow=true></asp:ModalPopupExtender>
-
-                <asp:Panel ID="pnpMensagemMP" runat="server" BackColor="White" BorderStyle="Solid" BorderWidth="1px" style="position:absolute; margin-left:auto;margin-right:auto; height: 145px; width: 288px; display:none">
-
-                    <asp:Label ID="lblMensagem" runat="server" Text="Label" style="position:absolute; top: 20px; left: 101px; width: 171px; height: 60px;"></asp:Label>
-                    <asp:Button ID="btnFecharMensagem" runat="server" Text="OK" style="position:absolute; top: 107px; left: 117px; bottom: 12px; width: 91px;" onclick="btnFecharMensagem_Click" />
-
-                    <asp:Image ID="imgMensagem" runat="server" style="position:absolute; top: 9px; left: 9px; width: 72px; height: 74px;" />
-
-                </asp:Panel>
-
-            </form>
         </div>
-    </body>
-    </html>
+    </form>
+</body>
+</html>

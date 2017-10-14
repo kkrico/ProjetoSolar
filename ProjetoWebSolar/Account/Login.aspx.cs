@@ -14,7 +14,7 @@ namespace ProjetoWebSolar.Account
         public enum TipoMensagem { Erro, Informacao, Salvar }
         protected void Page_Load(object sender, EventArgs e)
         {
-            string msg="";
+            string msg = "";
             double ver = getInternetExplorerVersion();
             if (ver > 0.0)
             {
@@ -42,12 +42,11 @@ namespace ProjetoWebSolar.Account
         }
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-
             Logar();
 
-            
+
             //Response.Redirect("../Visitante/webConsultaVisitante.aspx");
- 
+
         }
         private void Logar()
         {
@@ -95,7 +94,7 @@ namespace ProjetoWebSolar.Account
             }
             catch (Exception ex)
             {
-                
+
                 Mensagem(ex.Message, TipoMensagem.Erro, "");
             }
 
@@ -105,13 +104,13 @@ namespace ProjetoWebSolar.Account
             switch (tipomsg)
             {
                 case TipoMensagem.Erro:
-                    imgMensagem.ImageUrl = "../Imagens/error.png";
+                    imgMensagem.ImageUrl = "/Content/images/error.png";
                     break;
                 case TipoMensagem.Informacao:
-                    imgMensagem.ImageUrl = "../Imagens/get_info.png";
+                    imgMensagem.ImageUrl = "/Content/images/get_info.png";
                     break;
                 case TipoMensagem.Salvar:
-                    imgMensagem.ImageUrl = "../Imagens/get_info.png";
+                    imgMensagem.ImageUrl = "/Content/images/get_info.png";
                     break;
                 default:
                     break;
@@ -124,7 +123,7 @@ namespace ProjetoWebSolar.Account
         }
         protected void btnFecharMensagem_Click(object sender, EventArgs e)
         {
-            
+
         }
 
     }
